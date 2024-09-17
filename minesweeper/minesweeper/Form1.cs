@@ -17,15 +17,7 @@ namespace minesweeper
         public Form1()
         {
             InitializeComponent();
-      
-            for(int i = 0; i < 100; i++)
-            {
-                btnGrid[i] = (Button)Controls["Button" + (i+1)];
-                btnGrid[i].BackColor = Color.Gray;
-                tileGrid[i] = new tile(btnGrid[i]); 
-            }
-        
-
+            reset();
         }
         private Button GetButton(int R, int C) 
         {
@@ -42,13 +34,29 @@ namespace minesweeper
         {
 
         }
-
-       
-
         private void button91_MouseDown(object sender, MouseEventArgs e)
         {
             Button b = sender as Button;
             b.BackColor = Color.Red;
+        }
+        private void button101_Click(object sender, EventArgs e)
+        {
+            reset();
+        }
+
+        private void reset()
+        {
+            reset();
+
+            void reset()
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    btnGrid[i] = (Button)Controls["Button" + (i + 1)];
+                    btnGrid[i].BackColor = Color.Gray;
+                    tileGrid[i] = new tile(btnGrid[i]);
+                }
+            }
         }
     }
 }
