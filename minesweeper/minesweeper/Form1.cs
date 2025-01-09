@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
@@ -25,14 +26,22 @@ namespace minesweeper
         private Button GetButton(int R, int C) 
         {
             int idx = (R - 1) * 10 + (C - 1);
+           // Debug.Assert(btnGrid[idx] == null);
             return btnGrid[idx];
         }
         private int getIndex(Button b)
         {
+          //  Debug.Assert(b != null);
             string tmp = b.Name.Substring(6);
             int retVal = 0;
             int.TryParse(tmp, out retVal);
             return retVal-1; 
+        }
+        private void getRC(Button b, out int r, out int c)
+        { 
+         int i = getIndex(b);
+         r = (i / 10) + 1;
+         c = (i % 10)+1;
         }
         private void Setcounts()
         {
@@ -125,7 +134,11 @@ namespace minesweeper
         }
         private void dignear(int r, int c)
         {
-            
+
+            if (r < 10 && c < 10)
+            {
+                tileGrid[getIndex(GetButton(r, c))].setdug();
+            }
             if (r > 1 && c > 1)
             {
                 tileGrid[getIndex(GetButton(r - 1, c - 1))].setdug();
@@ -183,31 +196,19 @@ namespace minesweeper
                 }
             }
         }
-        private void Middleclick(object sender, MouseEventArgs e, int r, int c )
-        {
-            
-            Button b = sender as Button;
-            tile T = tileGrid[getIndex(b)];
-            if (e.Button == MouseButtons.Middle )
-            {
-                if (countadj(r,c ) == countadjFlag(r, c)) 
-                { 
-                    dignear(r, c);
-                }
-                                
-                
-
-                
-            }
-        }
-        
         private void button_MouseDown(object sender, MouseEventArgs e)
         {
             Button b = sender as Button;
             tile T = tileGrid[getIndex(b)];
+            if (e.Button == MouseButtons.Middle)
+            { int r = 0; int c = 0; 
+              getRC(b,out r, out c);
+                if (countadj(r,c) == countadjFlag(r,c))
+                    dignear(r,c);   
+            }
+           
 
-
-            if (e.Button == MouseButtons.Right)
+                if (e.Button == MouseButtons.Right)
             {
 
                 T.setflag();
@@ -242,6 +243,7 @@ namespace minesweeper
 
             void reset()
             {
+                
                 for (int i = 0; i < 100; i++)
                 {
                     
@@ -249,28 +251,41 @@ namespace minesweeper
                     tileGrid[i] = new tile(btnGrid[i]);
                     tileGrid[i].setflagimage(flagpicturebox.Image);
                     tileGrid[i].setmineimage(minePIcturebox.Image);
-                    
-
                 }
-                createmines(30);
+               
+                createmines(15);
+                for (int r = 1; r < 11; r++)
+                {
+                    for (int c = 1; c < 11; c++)
+                    {
+
+                        tileGrid[getIndex(GetButton(r, c))].setnearby(countadj(r, c));
+                    }
+                }
                 //Setcounts();
                 // countadj(10,10);
                 // countadj(1, 10);
                 // countadj(1, 1);
                 // countadj(10, 1);
                 // countadj(5, 5);
-                for (int r = 1; r<11; r++)
+
+                for (int r = 1; r < 11; r++)
                 {
-                    for( int c=1; c < 11; c++)
+                    for (int c = 1; c < 11; c++)
                     {
-                        tileGrid[getIndex(GetButton(r, c))].setnearby(countadj(r,c));
+                        
+                        GetButton(r, c).BackColor = Color.Gray;
+                        
                     }
                 }
-              
+
             }
             
         }
 
-     
+        private void minePIcturebox_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

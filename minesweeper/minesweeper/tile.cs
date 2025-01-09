@@ -30,7 +30,7 @@ namespace minesweeper
         {
             
             T_nearmines = N;
-            T_b.Text = T_nearmines.ToString();
+           
         }
         public void setnearbyFlags(int N)
         {
@@ -42,9 +42,12 @@ namespace minesweeper
         public void setmineimage(Image mineimage) { T_mineimage = mineimage; }
         public void setdug() 
         {
+            T_b.Text = T_nearmines.ToString();
             T_dug = true;
-            if (T_mine)
+            if (T_mine && !T_flag)
                 T_b.BackgroundImage = T_mineimage;
+            if (T_flag)
+                T_dug = false;
             else
                 T_b.BackColor = Color.Beige;
             

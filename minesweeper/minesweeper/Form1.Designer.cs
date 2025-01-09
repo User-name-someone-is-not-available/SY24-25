@@ -320,7 +320,6 @@
             this.button17.TabIndex = 13;
             this.button17.Text = " ";
             this.button17.UseVisualStyleBackColor = true;
-           
             this.button17.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_MouseDown);
             // 
             // button18
@@ -1267,6 +1266,7 @@
             this.minePIcturebox.TabIndex = 102;
             this.minePIcturebox.TabStop = false;
             this.minePIcturebox.Visible = false;
+            this.minePIcturebox.Click += new System.EventHandler(this.minePIcturebox_Click);
             // 
             // Form1
             // 
