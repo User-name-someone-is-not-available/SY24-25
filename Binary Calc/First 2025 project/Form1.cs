@@ -231,6 +231,7 @@ namespace First_2025_project
 
         private void ANDIT_Click(object sender, EventArgs e)
         {
+            
             for (int i = 0; i < bits.Length; i++)
             {
                 if (bits[i] * bitsB[i] == 1) { bitsC[i] = 1; }
@@ -268,21 +269,44 @@ namespace First_2025_project
 
         private void ADDIT_Click(object sender, EventArgs e)
         {
-         
+            int carry = 0;
             for (int i = 0; i < bits.Length; i++)
             {
-                if (bits[i] == 1 && bitsB[i] != 1 ) { bitsC[i] = 1; }
-                if (bitsB[i] == 1 && bits[i] != 1) { bitsC[i] = 1; }
-                if (bits[i] == 1 && bitsB[i] == 1)
+         
+                int sum = bits[i] + bitsB[i] + carry;
+
+            
+                if (sum == 0)
                 {
-                    bitsC[i + 1] = 1;// bits[i] = 0; bitsB[i] = 0;
-
-                    if (bitsC[i] == 1 && bitsB[i] == 1) { bitsC[i + 1] = 1; }
+                    bitsC[i] = 0;
+                    carry = 0;
                 }
-                Update();
+                else if (sum == 1)
+                {
+                    bitsC[i] = 1;
+                    carry = 0;
+                }
+                else if (sum == 2)
+                {
+                    bitsC[i] = 0;
+                    carry = 1;
+                }
+                else 
+                {
+                    bitsC[i] = 1;
+                    carry = 1;
+                }
             }
-        }
 
+
+            if (carry == 1)
+            {
+     
+                bitsC[bits.Length] = 1; 
+            }
+
+            Update();
+        }
         private void button3_Click(object sender, EventArgs e)
         {
             int A = Value - valueB;
