@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quartet", "Quartet\Quartet.csproj", "{A4C25F1B-D79D-48E6-8A54-F72050FAB4C3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quartet", "Quartet.csproj", "{A4C25F1B-D79D-48E6-8A54-F72050FAB4C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +20,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {7AA09938-5A83-4F8B-8CD6-30980933A943}
+		SolutionGuid = {519EF9DA-5066-468C-9B82-535D83BCEB67}
 	EndGlobalSection
 EndGlobal
