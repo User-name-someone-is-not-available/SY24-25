@@ -60,6 +60,13 @@
             this.moneylabel = new System.Windows.Forms.Label();
             this.Output = new System.Windows.Forms.PictureBox();
             this.OutputL = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.lblPurchaseMessage = new System.Windows.Forms.Label();
+            this.lblProductName = new System.Windows.Forms.Label();
+            this.lblProductPrice = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.A1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.B1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.C1)).BeginInit();
@@ -362,7 +369,7 @@
             // moneylabel
             // 
             this.moneylabel.AutoSize = true;
-            this.moneylabel.Location = new System.Drawing.Point(676, 383);
+            this.moneylabel.Location = new System.Drawing.Point(687, 391);
             this.moneylabel.Name = "moneylabel";
             this.moneylabel.Size = new System.Drawing.Size(0, 16);
             this.moneylabel.TabIndex = 28;
@@ -385,11 +392,81 @@
             this.OutputL.Size = new System.Drawing.Size(0, 16);
             this.OutputL.TabIndex = 30;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(661, 340);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 31;
+            this.button1.Text = "Clear";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(391, 178);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 32;
+            this.button2.Text = "buy";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(397, 247);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 16);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "Amount: 1";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(391, 277);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(86, 43);
+            this.button3.TabIndex = 34;
+            this.button3.Text = "buy more ";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // lblPurchaseMessage
+            // 
+            this.lblPurchaseMessage.AutoSize = true;
+            this.lblPurchaseMessage.Location = new System.Drawing.Point(407, 204);
+            this.lblPurchaseMessage.Name = "lblPurchaseMessage";
+            this.lblPurchaseMessage.Size = new System.Drawing.Size(0, 16);
+            this.lblPurchaseMessage.TabIndex = 35;
+            // 
+            // lblProductName
+            // 
+            this.lblProductName.AutoSize = true;
+            this.lblProductName.Location = new System.Drawing.Point(367, 53);
+            this.lblProductName.Name = "lblProductName";
+            this.lblProductName.Size = new System.Drawing.Size(0, 16);
+            this.lblProductName.TabIndex = 36;
+            // 
+            // lblProductPrice
+            // 
+            this.lblProductPrice.AutoSize = true;
+            this.lblProductPrice.Location = new System.Drawing.Point(366, 19);
+            this.lblProductPrice.Name = "lblProductPrice";
+            this.lblProductPrice.Size = new System.Drawing.Size(0, 16);
+            this.lblProductPrice.TabIndex = 37;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblProductPrice);
+            this.Controls.Add(this.lblProductName);
+            this.Controls.Add(this.lblPurchaseMessage);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.OutputL);
             this.Controls.Add(this.Output);
             this.Controls.Add(this.moneylabel);
@@ -475,6 +552,13 @@
         private System.Windows.Forms.Label moneylabel;
         private System.Windows.Forms.PictureBox Output;
         private System.Windows.Forms.Label OutputL;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label lblPurchaseMessage;
+        private System.Windows.Forms.Label lblProductName;
+        private System.Windows.Forms.Label lblProductPrice;
     }
 }
 
